@@ -9,7 +9,7 @@ import { isNgTemplate } from '@angular/compiler';
 })
 export class StdComponent implements OnInit {
 
-isInEditMode :boolean =false
+isInEditMode :boolean =false;
  
   @ViewChild('stdName')fnameRef !: ElementRef
   @ViewChild('stdlName')lnameRef !: ElementRef
