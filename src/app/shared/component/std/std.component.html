@@ -1,0 +1,65 @@
+<p class="text-center gana">Ganesh Bhalke</p>
+<div class="container">
+   <div class="row">
+    <div class="col-md-4">
+        <div class="form-group">
+         <label for="fname"><b>First Name</b></label>
+          <input type="text" #fname class="form-control" #stdName>
+        </div>
+        <div class="form-group">
+         <label for="lname"><b>Last Name</b></label>
+          <input type="text" #lname class="form-control" #stdlName>
+        </div>
+        <div class="form-group">
+         <label for="email"><b>Email </b></label>
+          <input type="text" #email class="form-control" #stdEmail>
+        </div>
+        <div class="form-group">
+         <label for="contact"><b>Contact</b></label>
+          <input type="text" #contact class="form-control" #stdContact>
+        </div>
+         
+        <button class="btn btn-primary btn-block " *ngIf="!isInEditMode" (click)="onSubEve()">ADD STD</button>
+        <button class="btn btn-warning btn-block" *ngIf="isInEditMode" (click)="onUpdate()">UPDATE STD</button>
+
+    </div>
+    <div class="col-md-7 offset-1">
+        <table class="table table-bordered" *ngIf="stdsArr.length > 0; else noStudent">
+            <thead>
+                <tr>
+
+                    <th>SR.No</th>
+                    <th>Fname</th>
+                    <th>Lname</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Edit</th>
+                    <th>Remove</th>
+                </tr>
+
+            </thead>
+            
+            <tbody> 
+                <tr *ngFor="let gana of stdsArr; let i=index">
+                    <td>{{i + 1}}</td>
+                    <td>{{gana.fname}}</td>
+                    <td> {{gana.lname}}</td>
+                    <td>{{gana.email}}</td>
+                    <td>{{gana.contact}}</td>
+                    <td>
+                        <button class="btn btn-outline-primary btn-sm mr-3 text-center" (click)="onEdit(gana)">Edit</button>
+                    </td>
+                    <td>
+                <button class="btn btn-outline-danger btn-sm text-center" (click)="onRemove(i)">Remove</button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+       <ng-template #noStudent>
+  <p class="alert alert-info">No Student Data added Yet!!</p>
+</ng-template>
+
+    </div>
+   </div>
+</div>
